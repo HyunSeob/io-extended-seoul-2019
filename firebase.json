@@ -9,14 +9,7 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "iox/index.html"
-      }
-    ],
-    "redirects":[
-      {
-        "source": "/",
-        "destination": "https://gdgkl.dev",
-        "type": 301
+        "destination": "/index.html"
       }
     ]
   }

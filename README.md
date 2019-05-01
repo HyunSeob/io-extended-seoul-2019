@@ -10,7 +10,7 @@ Start development server:
 
 `npm run dev`
 
-Build: 
+Build:
 
 `npm run build`
 
@@ -18,18 +18,17 @@ Set Google Cloud Project:
 
 `gcloud config set project <project-id>`
 
-Deploy: 
+Deploy:
 
 `gcloud app deploy io.yaml -v 1`
 
 ## Technology Stack
 
-* Preact
-* Firebase (Auth, Realtime Database, Hosting)
-* Service Worker
+- Preact
+- Service Worker
 
 ## License
 
-This PWA is published under the [MIT license](/LICENSE.md). 
+This PWA is published under the [MIT license](/LICENSE.md).
 
 Feel free to clone and modify repo as you want, but don't forget to add reference to authors.

@@ -1,31 +1,19 @@
 {
-  "private": true,
-  "name": "ioxkl19",
+  "name": "io-extended-2019-seoul",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "build": "node route-generator.js && preact build --template src/template.html --prerenderUrls src/prerender-urls.json --service-worker false --dest build/iox",
+    "build": "node route-generator.js && preact build --template src/template.html --prerenderUrls src/prerender-urls.json --service-worker false --dest build",
     "serve": "preact build --template src/template.html --service-worker false && preact serve",
     "dev": "preact watch --template src/template.html",
     "lint": "eslint src"
-  },
-  "eslintConfig": {
-    "extends": "eslint-config-synacor",
-    "rules": {
-      "no-unused-vars": "warn",
-      "react/sort-comp": "off",
-      "lines-around-comment": "off",
-      "react/prefer-stateless-function": "off"
-    }
   },
   "eslintIgnore": [
     "build/*"
   ],
   "devDependencies": {
     "copy-webpack-plugin": "^4.6.0",
-    "eslint": "^4.5.0",
-    "eslint-config-synacor": "^1.1.0",
     "if-env": "^1.0.0",
     "preact-cli": "^2.2.1",
     "preact-cli-plugin-netlify": "^1.1.0",
@@ -34,8 +22,6 @@
     "xmlbuilder": "^11.0.0"
   },
   "dependencies": {
-    "firebase": "^5.8.6",
-    "idb": "^2.1.3",
     "lottie-web": "^5.4.4",
     "npm": "^6.9.0",
     "preact": "^8.4.2",
