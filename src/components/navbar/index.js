@@ -9,10 +9,10 @@ import 'preact-material-components/List/style.css';
 import IoLogo from '../io_logo';
 import MenuIcon from '../SVG/Icons/menu';
 import HomeIcon from '../SVG/Icons/home';
-import AttendingIcon from '../SVG/Icons/attending';
 import RegistrationIcon from '../SVG/Icons/registration';
 import FaqIcon from '../SVG/Icons/faq';
 import CFPIcon from '../SVG/Icons/cpf';
+import ScheduleIcon from '../SVG/Icons/schedule';
 import style from './style';
 
 export default class NavBar extends Component {
@@ -24,7 +24,7 @@ export default class NavBar extends Component {
     this.setState({ drawerOpened: !this.state.drawerOpened });
   };
 
-  render({ rootPath, user }) {
+  render({ rootPath }) {
     return (
       <div>
         <div class={style.toolbar}>
@@ -35,13 +35,15 @@ export default class NavBar extends Component {
               </TopAppBar.Section>
               <div class={style.mobile_title}>
                 <Match path={rootPath + 'schedule'}>
-                  {({ path }) => path.startsWith(rootPath + 'schedule') && <span>Schedule</span>}
+                  {({ path }) => path.startsWith(rootPath + 'schedule') && <span>행사일정</span>}
                 </Match>
-                <Match path={rootPath + 'attending'}>
-                  {({ path }) => path.startsWith(rootPath + 'attending') && <span>Attending</span>}
+                <Match path={rootPath + 'code-of-conduct'}>
+                  {({ path }) =>
+                    path.startsWith(rootPath + 'code-of-conduct') && <span>Code of Conduct</span>
+                  }
                 </Match>
-                <Match path={rootPath + 'speakers'}>
-                  {({ path }) => path.startsWith(rootPath + 'speakers') && <span>Speakers</span>}
+                <Match path={rootPath + 'faq'}>
+                  {({ path }) => path.startsWith(rootPath + 'faq') && <span>FAQ</span>}
                 </Match>
               </div>
             </TopAppBar.Row>
@@ -51,50 +53,29 @@ export default class NavBar extends Component {
           <Drawer.DrawerContent>
             <div class={style.drawer_toolbar}>
               <IoLogo />
-              <h2>16 June 2019</h2>
-              <p>Sunway University, Bandar Sunway</p>
+              <h2>2019년 6월 30일</h2>
+              <p>세종대학교 광개토관</p>
             </div>
             <div class={style.drawer_nav}>
               <Link activeClassName={style.active} href={rootPath} onClick={this.closeDrawer}>
                 Home
               </Link>
-              <Match path="/attending">
+              <a href="https://festa.io/events/299" target="_blank">
+                참가하기
+              </a>
+              <Match path="/schedule">
                 {({ path, url }) => (
                   <Link
                     activeClassName={style.active}
-                    href={rootPath + 'attending'}
+                    href={rootPath + 'schedule'}
                     onClick={this.closeDrawer}
-                    path={path.startsWith(`${rootPath}attending/`) ? url : undefined}
+                    path={path.startsWith(`${rootPath}schedule/`) ? url : undefined}
                   >
-                    Attending
+                    행사일정
                   </Link>
                 )}
               </Match>
-              <Match path="/registration">
-                {({ path, url }) => (
-                  <Link
-                    activeClassName={style.active}
-                    href={rootPath + 'registration'}
-                    onClick={this.closeDrawer}
-                    path={path.startsWith(`${rootPath}registration/`) ? url : undefined}
-                  >
-                    Registration
-                  </Link>
-                )}
-              </Match>
-              <Match path="/cfp">
-                {({ path, url }) => (
-                  <Link
-                    activeClassName={style.active}
-                    href={rootPath + 'cfp'}
-                    onClick={this.closeDrawer}
-                    path={path.startsWith(`${rootPath}cfp/`) ? url : undefined}
-                  >
-                    Call for Presenters
-                  </Link>
-                )}
-              </Match>
-              <Match path="/faq">
+              {/* <Match path="/faq">
                 {({ path, url }) => (
                   <Link
                     activeClassName={style.active}
@@ -105,7 +86,7 @@ export default class NavBar extends Component {
                     FAQ
                   </Link>
                 )}
-              </Match>
+              </Match> */}
             </div>
           </Drawer.DrawerContent>
         </Drawer>
@@ -118,47 +99,24 @@ export default class NavBar extends Component {
               <HomeIcon />
               <span>Home</span>
             </Link>
-            <Match path="/attending">
+            <a class={style.nav_item} href="https://festa.io/events/299" target="_blank">
+              <RegistrationIcon />
+              <span>참가하기</span>
+            </a>
+            <Match path="/schedule">
               {({ path, url }) => (
                 <Link
                   activeClassName={style.active}
                   class={style.nav_item}
-                  href={rootPath + 'attending'}
-                  path={path.startsWith(`${rootPath}attending/`) ? url : undefined}
+                  href={rootPath + 'schedule'}
+                  path={path.startsWith(`${rootPath}schedule/`) ? url : undefined}
                 >
-                  <AttendingIcon />
-                  <span>Attending</span>
+                  <ScheduleIcon />
+                  <span>행사일정</span>
                 </Link>
               )}
             </Match>
-            <Match path="/registration">
-              {({ path, url }) => (
-                <Link
-                  activeClassName={style.active}
-                  class={style.nav_item}
-                  href={rootPath + 'registration'}
-                  path={path.startsWith(`${rootPath}registration/`) ? url : undefined}
-                >
-                  <RegistrationIcon />
-                  <span>Registration</span>
-                </Link>
-              )}
-            </Match>
-            <Match path="/cfp">
-              {({ path, url }) => (
-                <Link
-                  activeClassName={style.active}
-                  class={style.nav_item}
-                  href={rootPath + 'cfp'}
-                  path={path.startsWith(`${rootPath}cfp/`) ? url : undefined}
-                >
-                  <CFPIcon />
-                  <span class={style.cfpTitle}>Call for Presenters</span>
-                  <span class={style.cfpTitleMobile}>CFP</span>
-                </Link>
-              )}
-            </Match>
-            <Match path="/faq">
+            {/* <Match path="/faq">
               {({ path, url }) => (
                 <Link
                   activeClassName={style.active}
@@ -170,7 +128,7 @@ export default class NavBar extends Component {
                   <span>FAQ</span>
                 </Link>
               )}
-            </Match>
+            </Match> */}
             <div class={style.line} />
           </nav>
         </div>

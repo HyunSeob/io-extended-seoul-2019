@@ -8,6 +8,7 @@ import CommunityGuidelines from 'async!../routes/communityguidelines';
 import NotFoundPage from 'async!../routes/404';
 import Faq from 'async!../routes/faq';
 import CallForPresentersPage from 'async!../routes/cfp';
+import SchedulePage from 'async!../routes/schedule';
 import Snackbar from 'preact-material-components/Snackbar';
 import 'preact-material-components/Snackbar/style.css';
 
@@ -59,7 +60,6 @@ export default class App extends Component {
     super();
 
     this.state = {
-      currentUser: null,
       schedule: [],
       partners: {},
       sessions: {},
@@ -77,7 +77,7 @@ export default class App extends Component {
   render({}, { currentUser, partners, info, rootPath }) {
     return (
       <div id="app">
-        <NavBar user={currentUser} rootPath={rootPath} />
+        <NavBar rootPath={rootPath} />
         <Router onChange={this.handleRoute}>
           <Attending path={rootPath + 'attending/'} rootPath={rootPath} info={info} />
           <Registration
@@ -90,6 +90,7 @@ export default class App extends Component {
           <Faq path={rootPath + 'faq/'} rootPath={rootPath} />
           <Home path={rootPath} rootPath={rootPath} partners={partners} />
           <CallForPresentersPage path={rootPath + 'cfp/'} rootPath={rootPath} info={info} />
+          <SchedulePage path={rootPath + 'schedule/'} />
           <NotFoundPage rootPath={rootPath} default />
         </Router>
         <Snackbar

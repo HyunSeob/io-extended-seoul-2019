@@ -197,7 +197,7 @@
 
 .drawer_nav a.active {
   color: #1a73e8;
-  background-color: rgba(26,115,232,.12);
+  background-color: rgba(26, 115, 232, 0.12);
   border-top-left-radius: 42px;
   border-bottom-left-radius: 42px;
 }
@@ -410,7 +410,7 @@
   .cfpTitle {
     display: none;
   }
-  
+
   .cfpTitleMobile {
     display: block;
   }

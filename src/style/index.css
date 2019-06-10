@@ -25,6 +25,28 @@ body {
   padding-left: 72px;
 }
 
+.ctaButton {
+  display: inline-block;
+  font-size: 24px;
+  padding: 18px 24px;
+  text-decoration: none;
+  border-radius: 6px;
+  text-align: center;
+
+  background-color: #4285f4;
+  color: #fff;
+
+  transition: background-color 0.25s ease;
+}
+
+.ctaButton:hover {
+  background-color: #1a73e8;
+}
+
+.ctaButton:active {
+  background-color: #1a73e8;
+}
+
 .topappbar {
   border-bottom: 1px solid #e6e6e6;
   transition: 150ms border ease-in-out;
