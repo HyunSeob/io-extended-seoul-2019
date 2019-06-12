@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { h, Component, Fragment } from 'preact';
 import Dialog from '../../components/dialog';
 import { route } from 'preact-router';
 import IoLogo from '../../components/io_logo';
@@ -6,6 +6,7 @@ import SocialFooter from '../../components/social_footer';
 import Footer from '../../components/footer';
 import 'preact-material-components/Switch/style.css';
 import style from './style';
+import data from './schedule-data';
 
 export default class Schedule extends Component {
   state = {
@@ -105,24 +106,68 @@ export default class Schedule extends Component {
     }
   }
 
-  render({ rootPath, user, userSchedule, db, sessions, schedule, speakers }, { showMyIO }) {
+  render({ rootPath, sessions, schedule }) {
     return (
       <div>
-        <Dialog
-          ref={dialog => {
-            this.dialog = dialog;
-          }}
-          star={userSchedule}
-          speakers={speakers}
-          db={db}
-          user={user}
-          rootPath={rootPath}
-        />
-
         <div class={`${style.hero} hero`}>
           <IoLogo rootPath={rootPath} />
           <h2>행사일정</h2>
-          <p>추후 세부 일정이 업데이트 됩니다. 조금만 기다려주세요! 😉</p>
+        </div>
+
+        <div class={style.schedule}>
+          {data.map(row => (
+            <div class={style.schedule_section}>
+              <div class={style.schedule_content}>
+                <div class={style.schedule_time}>
+                  <span class="ampm">{row.ampm}</span>
+                  {row.time}
+                </div>
+                <div class={style.schedule_events}>
+                  {row.events.map(event => (
+                    <div class={style.schedule_event}>
+                      <div class={style.schedule_event_details}>
+                        <div class={style.schedule_event_title}>
+                          {event.title}
+                          {event.speaker && (
+                            <span class={style.schedule_event_speaker}>{event.speaker}</span>
+                          )}
+                        </div>
+                        <div class={style.schedule_event_meta}>
+                          <div class={style.schedule_event_description}>
+                            {event.duration} / {event.location}
+                          </div>
+                          <div class={style.schedule_event_topics}>
+                            {event.topics.map(topic => (
+                              <div class="session_topic">
+                                <span>{topic}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        {/* <a
+                      class={style.slides}
+                      id="slides"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="#"
+                    >
+                      <svg id="slides" viewBox="0 0 24 24">
+                        <g id="slides">
+                          <path
+                            id="slides"
+                            d="M19,16H5V8H19M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z"
+                          />
+                        </g>
+                      </svg>
+                      <span id="slides">View Slides</span>
+                    </a> */}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
         {schedule && (
@@ -181,38 +226,6 @@ export default class Schedule extends Component {
                                     </a>
                                   )}
                                 </div>
-                                {user && (
-                                  <div
-                                    class={style.star_button}
-                                    onClick={this.star(item)}
-                                    id="star"
-                                  >
-                                    <svg id="star">
-                                      {userSchedule ? (
-                                        userSchedule[item] ? (
-                                          <path
-                                            id="star"
-                                            class={style.star}
-                                            fill="#4768FD"
-                                            d="M12,17.27l4.15,2.51c0.76,0.46,1.69-0.22,1.49-1.08l-1.1-4.72l3.67-3.18c0.67-0.58,0.31-1.68-0.57-1.75l-4.83-0.41 l-1.89-4.46c-0.34-0.81-1.5-0.81-1.84,0L9.19,8.63L4.36,9.04c-0.88,0.07-1.24,1.17-0.57,1.75l3.67,3.18l-1.1,4.72 c-0.2,0.86,0.73,1.54,1.49,1.08L12,17.27z"
-                                          />
-                                        ) : (
-                                          <path
-                                            id="star"
-                                            class={style.star_border}
-                                            d="M19.65,9.04l-4.84-0.42l-1.89-4.45c-0.34-0.81-1.5-0.81-1.84,0L9.19,8.63L4.36,9.04c-0.88,0.07-1.24,1.17-0.57,1.75 l3.67,3.18l-1.1,4.72c-0.2,0.86,0.73,1.54,1.49,1.08L12,17.27l4.15,2.51c0.76,0.46,1.69-0.22,1.49-1.08l-1.1-4.73l3.67-3.18 C20.88,10.21,20.53,9.11,19.65,9.04z M12,15.4l-3.76,2.27l1-4.28l-3.32-2.88l4.38-0.38L12,6.1l1.71,4.04l4.38,0.38l-3.32,2.88 l1,4.28L12,15.4z"
-                                          />
-                                        )
-                                      ) : (
-                                        <path
-                                          id="star"
-                                          class={style.star_border}
-                                          d="M19.65,9.04l-4.84-0.42l-1.89-4.45c-0.34-0.81-1.5-0.81-1.84,0L9.19,8.63L4.36,9.04c-0.88,0.07-1.24,1.17-0.57,1.75 l3.67,3.18l-1.1,4.72c-0.2,0.86,0.73,1.54,1.49,1.08L12,17.27l4.15,2.51c0.76,0.46,1.69-0.22,1.49-1.08l-1.1-4.73l3.67-3.18 C20.88,10.21,20.53,9.11,19.65,9.04z M12,15.4l-3.76,2.27l1-4.28l-3.32-2.88l4.38-0.38L12,6.1l1.71,4.04l4.38,0.38l-3.32,2.88 l1,4.28L12,15.4z"
-                                        />
-                                      )}
-                                    </svg>
-                                  </div>
-                                )}
                               </div>
                             )
                         )}

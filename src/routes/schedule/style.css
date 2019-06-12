@@ -134,6 +134,13 @@
   font-weight: 500;
   color: #4a4a4a;
   margin-bottom: 24px;
+  word-break: keep-all;
+}
+
+.schedule_event_speaker {
+  display: block;
+  font-size: 14px;
+  font-weight: normal;
 }
 
 .schedule_event_meta {
@@ -212,7 +219,7 @@
   .schedule_event_details {
     display: block;
   }
-  .schedule_event:only-child .schedule_event_meta,
+
   .schedule_event_meta {
     flex-direction: column;
     align-items: flex-start;
@@ -296,7 +303,12 @@
     background-color: #fafafa;
   }
   .schedule_event_meta {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between !important;
+    align-items: center;
+  }
+  .schedule_event_topics {
+    margin-top: -4px;
   }
   .schedule_event:only-child .star_button {
     margin-right: 0;
@@ -317,7 +329,6 @@
     font-size: 16px;
     line-height: 20px;
     font-weight: 500;
-    padding-right: 16px;
   }
   .footer {
     display: none;

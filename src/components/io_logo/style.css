@@ -3,20 +3,20 @@
   flex-direction: column;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
   .firebase_logo {
-    display:none;
+    display: none;
   }
-  .firebase_logo_wrap{
-    display:block;
+  .firebase_logo_wrap {
+    display: block;
   }
 }
 
-@media screen and (min-width:768px){
+@media screen and (min-width: 768px) {
   .firebase_logo {
     display: block;
   }
-  .firebase_logo_wrap{
-    display:none;
+  .firebase_logo_wrap {
+    display: none;
   }
 }

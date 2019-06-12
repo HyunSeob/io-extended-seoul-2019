@@ -97,7 +97,7 @@ export default class Faq extends Component {
               <p>
                 <b>인터넷</b>
               </p>
-              <p>행사장 내 와이파이가 제공됩니다.</p>
+              <p>행사장 내 와이파이가 제공되지 않습니다.</p>
               <br />
               <p>
                 <b>식음료</b>
@@ -112,7 +112,10 @@ export default class Faq extends Component {
               <p>
                 <b>발표자료</b>
               </p>
-              <p>일부 발표자에 한해 발표자료가 공개될 예정입니다.</p>
+              <p>
+                행사가 끝난 뒤에 발표자료 공개에 동의해주신 발표자료에 한해 발표자료가 공개될
+                예정입니다.
+              </p>
               <br />
               <p>
                 <b>문의</b>
