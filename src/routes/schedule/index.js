@@ -79,7 +79,7 @@ export default class Schedule extends Component {
   }
 
   componentDidMount() {
-    document.title = 'Schedule - I/O Extended 2019 Seoul';
+    document.title = '행사일정 - I/O Extended 2019 Seoul';
     window.addEventListener('scroll', this.handleScroll, { passive: true });
     this.handleScroll();
   }

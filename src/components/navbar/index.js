@@ -75,7 +75,7 @@ export default class NavBar extends Component {
                   </Link>
                 )}
               </Match>
-              {/* <Match path="/faq">
+              <Match path="/faq">
                 {({ path, url }) => (
                   <Link
                     activeClassName={style.active}
@@ -86,7 +86,7 @@ export default class NavBar extends Component {
                     FAQ
                   </Link>
                 )}
-              </Match> */}
+              </Match>
             </div>
           </Drawer.DrawerContent>
         </Drawer>
@@ -116,7 +116,7 @@ export default class NavBar extends Component {
                 </Link>
               )}
             </Match>
-            {/* <Match path="/faq">
+            <Match path="/faq">
               {({ path, url }) => (
                 <Link
                   activeClassName={style.active}
@@ -128,7 +128,7 @@ export default class NavBar extends Component {
                   <span>FAQ</span>
                 </Link>
               )}
-            </Match> */}
+            </Match>
             <div class={style.line} />
           </nav>
         </div>

@@ -3,98 +3,133 @@ import IoLogo from '../../components/io_logo';
 import SocialFooter from '../../components/social_footer';
 import Footer from '../../components/footer';
 import style from './style';
+import { Link } from 'preact-router';
 
 export default class Faq extends Component {
-	handleScroll() {
-		const ele = document.querySelector('.topappbar.mdc-top-app-bar');
-		if (document.documentElement.scrollTop < 56) {
-			ele.setAttribute('top', true);
-		}
-		else {
-			ele.removeAttribute('top');
-		}
-	}
+  handleScroll() {
+    const ele = document.querySelector('.topappbar.mdc-top-app-bar');
+    if (document.documentElement.scrollTop < 56) {
+      ele.setAttribute('top', true);
+    } else {
+      ele.removeAttribute('top');
+    }
+  }
 
-	componentDidMount() {
-		document.title = 'FAQ - I/O Extended 2019 Kuala Lumpur';
-		window.addEventListener('scroll', this.handleScroll, { passive: true });
-		this.handleScroll();
-	}
+  componentDidMount() {
+    document.title = 'FAQ - I/O Extended 2019 Seoul';
+    window.addEventListener('scroll', this.handleScroll, { passive: true });
+    this.handleScroll();
+  }
 
-	componentWillUnmount() {
-		window.removeEventListener('scroll', this.handleScroll);
-		document.querySelector('.topappbar.mdc-top-app-bar').removeAttribute('top');
-	}
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+    document.querySelector('.topappbar.mdc-top-app-bar').removeAttribute('top');
+  }
 
-	render({ rootPath }) {
-		return (
-			<div>
-				<div class="hero">
-					<IoLogo rootPath={rootPath} />
-					<h2>FAQ</h2>
-				</div>
-				<div class={style.faq}>
-					<div class={style.faq_item}>
-						<div class={style.faq_title}>General</div>
-						<div class={style.faq_content}>
-							<p><b>Date and location</b></p>
-							<p>I/O Extended 2019 Kuala Lumpur will take place on the 16 June 2019 at Sunway University, Bandar Sunway.</p>
-							<br />
-							<p><b>Stay Informed</b></p>
-							<p>To stay up to date on the latest information on sessions, speakers, and activities, be sure to visit the I/O Extended 2019 Kuala Lumpur website, and follow us on <a href="https://www.facebook.com/GDGKualaLumpur/" target="_blank" rel="noopener noreferrer">Facebook Page</a>. You can also follow and join the social conversation about I/O Extended 2019 Kuala Lumpur via official hashtags <b>#ioxkl19</b>. In addition, we'll be emailing important information to all registered attendees, along with check-in instructions prior to the conference.</p>
-							<br />
-							<p><b>Content Formats</b></p>
-							<p>During the conference, attendees will be able to attend sessions and hands-on workshops, chat with experts and attendees.</p>
-						</div>
-					</div>
-				</div>
-				<div class={style.faq}>
-					<div class={style.faq_item}>
-						<div class={style.faq_title}>Registration</div>
-						<div class={style.faq_content}>
-							<p><b>Registration terms &amp; conditions</b></p>
-							<ul>
-								<li>Each individual may purchase only one ticket.</li>
-								<li>You may not register on behalf of anyone else.</li>
-								<li>By registering and accepting any discounts, gifts, or items of value related to I/O Extended 2019 Kuala Lumpur, you certify that you are able to do so in compliance with applicable laws and the internal rules of your organization.</li>
-								<li>Tickets may not be sold, bartered, or auctioned in any way, and doing so may result in GDG Kuala Lumpur rendering the ticket null and void without any responsibility to GDG Kuala Lumpur.</li>
-								<li>Attendees aren’t permitted to bring guests to I/O Extended 2019 Kuala Lumpur. If you have someone traveling with you, they’ll need to register themselves and purchase an attendee ticket.</li>
-								<li>Photographs and/or video taken at I/O Extended 2019 Kuala Lumpur by GDG Kuala Lumpur, or others on behalf of GDG Kuala Lumpur, may include your image or likeness. You agree that GDG Kuala Lumpur may use such photographs and/or video for any purpose without compensation to you.</li>
-								<li>All information entered into the registration form must be correct and accurate to the best of your knowledge.</li>
-								<li>All registered attendees agree to allow GDG Kuala Lumpur to contact them regarding their registration and attendance at the event. By registering for a ticket, you agree to allow GDG Kuala Lumpur to communicate with you via email with information regarding the event.</li>
-								<li>You agree to be solely responsible for your own safety, belongings, and well-being while participating in I/O Extended 2019 Kuala Lumpur. GDG Kuala Lumpur won't be liable for your participation in I/O Extended 2019 Kuala Lumpur.</li>
-								<li>No solicitation or selling of items or services is allowed at I/O Extended 2019 Kuala Lumpur. Any attendee conducting these activities may be removed from the conference.</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class={style.faq}>
-					<div class={style.faq_item}>
-						<div class={style.faq_title}>Attendance Details</div>
-						<div class={style.faq_content}>
-							<p><b>Language</b></p>
-							<p>All presentations at I/O Extended 2019 Kuala Lumpur will be in English.</p>
-							<br />
-							<p><b>Event Attire</b></p>
-							<p>I/O Extended 2019 Kuala Lumpur is a developer event, so please be comfortable and casual. There is no enforced dress code.</p>
-							<br />
-							<p><b>Onsite food &amp; beverages</b></p>
-							<p>Attendees are offered complimentary breakfast, lunch, and tea break.</p>
-							<br />
-							<p><b>Smoking</b></p>
-							<p>Smoking is strictly prohibited in the venue.</p>
-							<br />
-							<p><b>No Soliciting</b></p>
-							<p>No solicitation or selling of items or services is allowed at I/O Extended 2019 Kuala Lumpur. Any attendee conducting these activities may be removed from the conference.</p>
-							<br />
-							<p><b>Community Guidelines</b></p>
-							<p>Check out the full Community Guidelines <a href={rootPath + 'faq/communityguidelines'}>here</a>.</p>
-						</div>
-					</div>
-				</div>
-				<SocialFooter rootPath={rootPath} />
-				<Footer rootPath={rootPath} />
-			</div>
-		);
-	}
+  render({ rootPath }) {
+    return (
+      <div>
+        <div class="hero">
+          <IoLogo rootPath={rootPath} />
+          <h2>FAQ</h2>
+        </div>
+        <div class={style.faq}>
+          <div class={style.faq_item}>
+            <div class={style.faq_title}>일반</div>
+            <div class={style.faq_content}>
+              <p>
+                <b>일정</b>
+              </p>
+              <p>
+                I/O Extended 2019 Seoul은 6월 30일 오전 11시부터 오후 5시 30분까지 진행됩니다.
+                구체적인 일정은 <Link href={rootPath + 'schedule'}>행사일정</Link> 페이지를
+                참고해주세요!
+              </p>
+              <br />
+              <p>
+                <b>장소</b>
+              </p>
+              <p>
+                행사 장소는 세종대학교 광개토관 지하 2층 컨벤션 홀입니다. 주차지원이 되지 않습니다.
+                가급적 대중교통을 이용해주시기 바랍니다. 지하철을 이용하시는 경우, 7호선
+                어린이대공원 역에서 하차하셔서 6번 출구로 나오신 후, 세종대학교 광개토관까지 도보로
+                이동하시면 됩니다.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class={style.faq}>
+          <div class={style.faq_item}>
+            <div class={style.faq_title}>등록</div>
+            <div class={style.faq_content}>
+              <p>
+                <b>환불 및 양도</b>
+              </p>
+              <ul>
+                <li>
+                  티켓 환불은{' '}
+                  <a href="https://festa.io/my/tickets" target="_blank">
+                    Festa '내 티켓'
+                  </a>{' '}
+                  메뉴에서 티켓 판매기간 동안에만 구입한 티켓의 환불 신청이 가능합니다.
+                </li>
+                <li>
+                  No-Show 는 다른 참석자에게 해가 됩니다. 티켓 구매 후 참여가 힘들게 된다면 환불
+                  기간 내에 환불 바랍니다.
+                </li>
+                <li>
+                  환불 기간 내에 환불을 못하셨다면 QR코드 전달 등으로 타인에게 양도할 수 있습니다.
+                </li>
+                <li>환불 마감일은 6월 26일에서 27일로 넘어가는 자정(27일 00시)입니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class={style.faq}>
+          <div class={style.faq_item}>
+            <div class={style.faq_title}>기타</div>
+            <div class={style.faq_content}>
+              <p>
+                <b>주차</b>
+              </p>
+              <p>주차 지원이 되지 않습니다. 대중교통을 이용해주시기 바랍니다.</p>
+              <br />
+              <p>
+                <b>인터넷</b>
+              </p>
+              <p>행사장 내 와이파이가 제공됩니다.</p>
+              <br />
+              <p>
+                <b>식음료</b>
+              </p>
+              <p>행사 내 식사는 제공되지 않으며, 간단한 간식과 물이 제공될 예정입니다.</p>
+              <br />
+              <p>
+                <b>흡연</b>
+              </p>
+              <p>행사장 전 구역에서 흡연은 금지되어있습니다.</p>
+              <br />
+              <p>
+                <b>발표자료</b>
+              </p>
+              <p>일부 발표자에 한해 발표자료가 공개될 예정입니다.</p>
+              <br />
+              <p>
+                <b>문의</b>
+              </p>
+              <p>
+                기타 행사 관련 문의는{' '}
+                <a href="mailto:io-extended-2019-seoul@googlegroups.com">
+                  io-extended-2019-seoul@googlegroups.com
+                </a>
+                으로 메일 주시면 빠르게 답변드리도록 하겠습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+        <SocialFooter rootPath={rootPath} />
+        <Footer rootPath={rootPath} />
+      </div>
+    );
+  }
 }
