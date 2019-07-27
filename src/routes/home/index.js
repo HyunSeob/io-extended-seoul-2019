@@ -113,6 +113,17 @@ export default class Home extends Component {
               >
                 <img src="/assets/images/myrealtrip.png" alt="마이리얼트립" />
               </a>
+              <a
+                class={style.item}
+                href="https://festa.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  width: 96,
+                }}
+              >
+                <img src="/assets/images/festa.png" alt="페스타" />
+              </a>
             </div>
           </div>
           <div>

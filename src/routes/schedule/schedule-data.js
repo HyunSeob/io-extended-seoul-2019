@@ -48,6 +48,7 @@ export default [
         location: 'Hall C',
         speaker: '양찬석',
         topics: ['Android'],
+        slide: 'https://drive.google.com/open?id=1CghMV5IqW0n3TNh4Kba-yRLWwWm6ptPf',
       },
     ],
   },
@@ -88,6 +89,7 @@ export default [
         location: 'Hall A',
         speaker: '조은',
         topics: ['Web'],
+        slide: 'https://drive.google.com/file/d/1cArGPApYvbrAVP01X7-Q1BVsRqHyKVDE/view',
       },
       {
         title: `Machine Learning in Google I/O 2019`,
@@ -102,6 +104,7 @@ export default [
         location: 'Hall C',
         speaker: '오남경',
         topics: ['Design'],
+        slide: 'https://www.slideshare.net/alcion00/google-io-2019-reviews-accessibility',
       },
     ],
   },
@@ -122,6 +125,7 @@ export default [
         location: 'Hall B',
         speaker: '김준성',
         topics: ['ML'],
+        slide: 'https://speakerdeck.com/codertimo/o-extended-seoul-2019',
       },
       {
         title: `What's New in Android Studio`,
@@ -129,6 +133,7 @@ export default [
         location: 'Hall C',
         speaker: '노현석',
         topics: ['Android'],
+        slide: 'https://speakerdeck.com/pluu/o-extended-2019-seoul-whats-new-in-android-studio',
       },
     ],
   },
@@ -142,6 +147,8 @@ export default [
         location: 'Hall A',
         speaker: '조환',
         topics: ['Flutter'],
+        slide:
+          'https://docs.google.com/presentation/d/1tHxczsQ0MPrl8rj008GYWIk6dM85JRPktfd7pDH8l2Y/edit?usp=sharing',
       },
       {
         title: `AllReduce for distributed learning`,
@@ -149,6 +156,7 @@ export default [
         location: 'Hall B',
         speaker: '한성민',
         topics: ['ML'],
+        slide: 'https://drive.google.com/open?id=1F9WpuOYT6iZw4p101a19wbHJDUXeA5tQ',
       },
       {
         title: `New Android Declarative UI patterns`,
@@ -156,6 +164,7 @@ export default [
         location: 'Hall C',
         speaker: '이승민',
         topics: ['Android'],
+        slide: 'https://speakerdeck.com/maryang/new-android-declarative-ui-patterns-compose',
       },
     ],
   },

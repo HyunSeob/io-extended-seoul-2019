@@ -204,4 +204,15 @@
     font-size: 28px;
     margin-bottom: 24px;
   }
+
+  .partners .item {
+    margin-right: 0;
+  }
+
+  .partners .sponsors {
+    display: inline-flex;
+    padding-top: 24px;
+    flex-direction: column;
+    align-items: center;
+  }
 }
